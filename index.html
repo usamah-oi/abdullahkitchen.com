@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio | Muhammad Usamah</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --primary: #e68a2e;
+        --secondary: #f4c454;
+        --sky-blue: #adddeb;
+        --white: #ffffff;
+        --bg-light: #f9f9f9;
+        --text-dark: #444444;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+        overflow-x: hidden;
+        width: 100%;
+      }
+
+      /* --- NAVBAR --- */
+      nav {
+        position: fixed;
+        width: 100%;
+        height: 70px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--white);
+        z-index: 1000;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        padding: 0 5%;
+      }
+      .nav-logo p {
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--primary);
+      }
+      .nav_menu_list {
+        display: flex;
+        gap: 20px;
+        list-style: none;
+      }
+      .nav-link {
+        text-decoration: none;
+        font-weight: 500;
+        color: var(--text-dark);
+        font-size: 14px;
+      }
+
+      /* --- WRAPPER & SECTION --- */
+      .wrapper {
+        width: 100%;
+        padding: 0 5%;
+      }
+      .section {
+        padding: 80px 0 40px;
+        overflow: hidden;
+      }
+      .top-header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .top-header h1 {
+        font-size: 28px;
+        color: var(--primary);
+      }
+
+      /* --- HERO SECTION (Perbaikan Teks & Foto) --- */
+      .featured-box {
+        display: flex;
+        flex-wrap: wrap;
+        min-height: 100vh;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        padding-top: 70px;
+      }
+      .featured-text {
+        flex: 1 1 300px;
+        text-align: left;
+      }
+      /* Solusi agar nama tidak terpotong vertikal */
+      .featured-name {
+        font-size: clamp(28px, 6vw, 45px);
+        font-weight: 700;
+        color: var(--primary);
+        line-height: 1.2;
+        margin: 10px 0;
+      }
+      .typedText {
+        color: var(--secondary);
+        display: block;
+      }
+
+      .featured-image {
+        flex: 1 1 250px;
+        display: flex;
+        justify-content: center;
+      }
+      .image-container {
+        width: clamp(200px, 45vw, 300px);
+        height: clamp(200px, 45vw, 300px);
+        background: var(--sky-blue);
+        border-radius: 30px;
+        border: 6px solid var(--secondary);
+        overflow: hidden;
+        transform: rotate(2deg);
+      }
+      .image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* --- EDUCATION (Perbaikan Ukuran Gambar) --- */
+      .edu-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+      .edu-card {
+        background: var(--white);
+        padding: 20px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        flex: 1 1 280px;
+        max-width: 400px;
+      }
+      .school-logo {
+        width: 100%;
+        max-width: 150px;
+        height: auto;
+        margin-bottom: 15px;
+      }
+
+      /* --- SKILLS --- */
+      .skills-box {
+        background: var(--white);
+        padding: 25px;
+        border-radius: 25px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+        text-align: center;
+      }
+      .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+      .skill-item {
+        background: var(--white);
+        color: var(--primary);
+        padding: 10px 18px;
+        border-radius: 12px;
+        font-weight: 600;
+        border: 2px solid rgba(230, 138, 46, 0.1);
+        font-size: 13px;
+      }
+
+      /* --- CONTACT (Perbaikan Email Meluber) --- */
+      .contact-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        background: var(--white);
+        padding: 25px;
+        border-radius: 25px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+      }
+      .contact-info,
+      .contact-form {
+        flex: 1 1 280px;
+        width: 100%;
+      }
+      /* Solusi teks email agar tidak meluber */
+      .email-text {
+        word-break: break-all;
+        font-size: 14px;
+        color: var(--text-dark);
+        display: block;
+        margin-top: 5px;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 12px;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        outline: none;
+      }
+      .send-btn {
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 12px;
+        border-radius: 8px;
+        font-weight: 600;
+        width: 100%;
+      }
+
+      /* --- FLOATING SOCIAL --- */
+      .floating-social {
+        position: fixed;
+        bottom: 20px;
+        right: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        z-index: 1001;
+      }
+      .floating-icon {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 20px;
+        text-decoration: none;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: 0.3s;
+      }
+      .floating-icon:hover {
+        transform: scale(1.1);
+      }
+      .wa {
+        background: #25d366;
+      }
+      .ig {
+        background: #e4405f;
+      }
+      .tt {
+        background: #000000;
+      }
+
+      footer {
+        background: #333;
+        color: white;
+        padding: 30px;
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      /* --- MEDIA QUERIES --- */
+      @media (max-width: 768px) {
+        .nav_menu_list {
+          display: none;
+        }
+        .featured-box {
+          flex-direction: column-reverse;
+          text-align: center;
+        }
+        .featured-text {
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="floating-social">
+      <a
+        href="https://wa.me/6281532896727"
+        class="floating-icon wa"
+        target="_blank"
+        ><i class="fab fa-whatsapp"></i
+      ></a>
+      <a
+        href="https://instagram.com/usamah_a0"
+        class="floating-icon ig"
+        target="_blank"
+        ><i class="fab fa-instagram"></i
+      ></a>
+      <a
+        href="https://tiktok.com/@usamah.a"
+        class="floating-icon tt"
+        target="_blank"
+        ><i class="fab fa-tiktok"></i
+      ></a>
+    </div>
+
+    <nav>
+      <div class="nav-logo">
+        <p>Usamah<span>.</span></p>
+      </div>
+      <ul class="nav_menu_list">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#education" class="nav-link">Sekolah</a></li>
+        <li><a href="#skills" class="nav-link">Skill</a></li>
+        <li><a href="#contact" class="nav-link">Kontak</a></li>
+      </ul>
+      <div class="nav-button">
+        <a href="https://wa.me/6281532896727" target="_blank">
+          <button
+            style="
+              background: var(--secondary);
+              padding: 8px 15px;
+              border: none;
+              border-radius: 8px;
+              font-weight: 600;
+              cursor: pointer;
+            "
+          >
+            Chat Me
+          </button>
+        </a>
+      </div>
+    </nav>
+
+    <main class="wrapper">
+      <section class="featured-box" id="home">
+        <div class="featured-text">
+          <span
+            style="
+              background: var(--sky-blue);
+              padding: 4px 10px;
+              border-radius: 5px;
+              font-size: 12px;
+              font-weight: 600;
+            "
+            >Running Education</span
+          >
+          <div class="featured-name">
+            <p>Halo, Saya <span class="typedText"></span></p>
+          </div>
+          <p>
+            Anak pertama dari 2 bersaudara. Pelajar di <b>JazAcademy</b> yang
+            fokus menyuarakan kebenaran tentang Palestina melalui visual
+            kreatif.
+          </p>
+        </div>
+        <div class="featured-image">
+          <div class="image-container">
+            <img src="img/Usamah.jpg" alt="Usamah Profile" />
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="education">
+        <div class="top-header"><h1>Riwayat Sekolah</h1></div>
+        <div class="edu-row">
+          <div class="edu-card">
+            <img
+              src="img/mardiyah.jpg"
+              alt="SDIT Mardhiyah"
+              class="school-logo"
+            />
+            <h3>SDIT Mardhiyah</h3>
+            <p>Sekolah Dasar</p>
+          </div>
+          <div class="edu-card">
+            <img
+              src="img/jaz-dark.png"
+              alt="Logo JazAcademy"
+              class="school-logo"
+            />
+            <h3>JazAcademy</h3>
+            <p>Pendidikan Saat Ini</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="skills">
+        <div class="top-header"><h1>My Skills</h1></div>
+        <div class="skills-box">
+          <div class="skills-list">
+            <div class="skill-item">Video Editing</div>
+            <div class="skill-item">Storytelling</div>
+            <div class="skill-item">HTML/CSS</div>
+            <div class="skill-item">Copywriting</div>
+            <div class="skill-item">Canva</div>
+            <div class="skill-item">CapCut</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="top-header"><h1>Hubungi Saya</h1></div>
+        <div class="contact-container">
+          <div class="contact-info">
+            <h2>Kirim Email</h2>
+            <p>
+              Ada pertanyaan atau Collab? Isi form di samping untuk mengirim
+              Gmail ke aku.
+            </p>
+            <div style="margin-top: 20px">
+              <b>Email:</b>
+              <span class="email-text"
+                >musamahabdurrahmanabdurrahman@gmail.com</span
+              >
+            </div>
+          </div>
+          <div class="contact-form">
+            <form
+              action="mailto:musamahabdurrahmanabdurrahman@gmail.com"
+              method="post"
+              enctype="text/plain"
+            >
+              <input type="text" name="Nama" placeholder="Nama Anda" required />
+              <textarea
+                name="Pesan"
+                placeholder="Pesan Anda..."
+                rows="4"
+                required
+              ></textarea>
+              <button type="submit" class="send-btn">Kirim Sekarang</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p><b>Muhammad Usamah Abdurrahman</b></p>
+      <p style="color: #bbb; font-size: 12px; margin-top: 5px">
+        &copy; Jazacademy Tasikmalaya
+      </p>
+    </footer>
+
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script>
+      new Typed(".typedText", {
+        strings: ["Muhammad Usamah", "Content Creator", "JazAcademy Student"],
+        loop: true,
+        typeSpeed: 80,
+        backSpeed: 50,
+        backDelay: 2000,
+      });
+    </script>
+  </body>
+</html>
