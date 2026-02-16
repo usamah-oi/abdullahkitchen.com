@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abdullah Kitchen | Parakan-Pondok-Benda</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --oranye: #ff8c00;
+        --cokelat: #3d2b1f;
+        --kuning: #ffcc00;
+        --putih: #ffffff;
+        --abu: #f8f9fa;
+        --hitam: #111111;
+      }
+
+      /* Global Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+        scroll-behavior: smooth;
+      }
+      body {
+        background-color: var(--putih);
+        color: var(--hitam);
+        line-height: 1.6;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      a {
+        text-decoration: none;
+        transition: 0.3s;
+      }
+
+      /* HEADER */
+      header {
+        background: var(--putih);
+        padding: 15px 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #eee;
+      }
+      .logo-area {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+      .logo-area img {
+        height: 50px;
+      }
+      .header-info {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        border-left: 1px dashed #ccc;
+        padding-left: 20px;
+      }
+      .header-info b {
+        color: var(--cokelat);
+        display: block;
+        font-size: 1.1rem;
+      }
+      .header-info i {
+        font-size: 2rem;
+        color: #111;
+      }
+
+      /* NAVIGATION */
+      nav {
+        background: var(--cokelat);
+        padding: 0 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        height: 65px;
+      }
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 20px;
+      }
+      nav ul li a {
+        color: var(--putih);
+        font-weight: 500;
+        font-size: 13px;
+        text-transform: uppercase;
+      }
+      nav ul li a:hover {
+        color: var(--kuning);
+      }
+
+      .search-container {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+      .search-box {
+        display: flex;
+        background: var(--putih);
+        border-radius: 30px;
+        padding: 2px 5px;
+        align-items: center;
+        border: 1px solid #ccc;
+      }
+      .search-box input {
+        border: none;
+        padding: 8px 15px;
+        border-radius: 30px;
+        outline: none;
+        width: 180px;
+        font-size: 14px;
+      }
+      .btn-cari {
+        background: var(--kuning);
+        border: none;
+        padding: 7px 25px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s;
+      }
+      .btn-cari:hover {
+        transform: scale(1.05);
+        background: #e6b800;
+      }
+
+      /* HERO SECTION */
+      .hero {
+        position: relative;
+        height: 75vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: var(--putih);
+        padding: 0 5%;
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+          url("https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=2070");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+      .hero-content h1 {
+        font-size: 3.5rem;
+        margin-bottom: 30px;
+        font-weight: 800;
+        text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
+      }
+      .btn-hero {
+        background: var(--oranye);
+        padding: 18px 50px;
+        border-radius: 50px;
+        color: white;
+        font-weight: bold;
+        font-size: 1.3rem;
+        transition: 0.3s;
+        border: 2px solid var(--oranye);
+      }
+      .btn-hero:hover {
+        background: transparent;
+        transform: scale(1.05);
+      }
+
+      /* ABOUT */
+      #about {
+        padding: 100px 5%;
+        background: var(--abu);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+      }
+      .about-text h2 {
+        font-size: 2.5rem;
+        color: var(--cokelat);
+        margin-bottom: 25px;
+      }
+      .about-img img {
+        border-radius: 30px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      /* SHOP & ANIMASI CURSOR */
+      #shop {
+        padding: 100px 5%;
+      }
+      .section-title {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+      }
+
+      .product-card {
+        background: white;
+        padding: 20px;
+        border-radius: 20px;
+        text-align: center;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border: 1px solid #eee;
+        overflow: hidden;
+      }
+      .product-card img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        transition: 0.5s;
+      }
+
+      /* EFEK KENA KURSOR (HOVER) */
+      .product-card:hover {
+        transform: translateY(-15px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(255, 140, 0, 0.15);
+        border-color: var(--oranye);
+      }
+      .product-card:hover img {
+        transform: scale(1.1);
+      }
+      .product-card h4 {
+        font-size: 1.3rem;
+        color: var(--cokelat);
+        transition: 0.3s;
+      }
+      .product-card:hover h4 {
+        color: var(--oranye);
+      }
+
+      /* TESTIMONI */
+      #testimoni {
+        padding: 100px 5%;
+        background: var(--abu);
+      }
+      .testi-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+      .testi-card {
+        background: white;
+        padding: 40px;
+        border-radius: 25px;
+        transition: 0.3s;
+      }
+      .testi-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      }
+
+      /* SARAN & KRITIK SECTION */
+      #saran {
+        padding: 80px 5%;
+        background: var(--cokelat);
+        color: white;
+        text-align: center;
+      }
+      .saran-container {
+        max-width: 600px;
+        margin: 40px auto 0;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 40px;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .saran-container input,
+      .saran-container textarea {
+        width: 100%;
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        font-size: 14px;
+      }
+      .btn-saran {
+        background: var(--oranye);
+        color: white;
+        padding: 15px 40px;
+        border: none;
+        border-radius: 30px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+        width: 100%;
+      }
+      .btn-saran:hover {
+        background: var(--kuning);
+        color: var(--cokelat);
+        transform: scale(1.02);
+      }
+
+      /* CONTACT */
+      #contact {
+        padding: 100px 5%;
+        background: white;
+        text-align: center;
+      }
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+      .contact-card {
+        background: var(--abu);
+        padding: 50px;
+        border-radius: 25px;
+        transition: 0.4s;
+      }
+      .contact-card:hover {
+        background: white;
+        border: 1px solid var(--oranye);
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+      .contact-card i {
+        font-size: 3rem;
+        color: var(--oranye);
+        margin-bottom: 20px;
+      }
+
+      /* FOOTER */
+      footer {
+        background: var(--hitam);
+        color: white;
+        padding: 80px 5% 40px;
+      }
+      .footer-features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 40px;
+        padding-bottom: 60px;
+        border-bottom: 1px solid #333;
+        margin-bottom: 60px;
+        text-align: center;
+      }
+      .footer-main {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 50px;
+      }
+      .social-box {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+      }
+      .social-box a {
+        width: 45px;
+        height: 45px;
+        background: #222;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        transition: 0.3s;
+      }
+      .social-box a:hover {
+        background: var(--oranye);
+        transform: translateY(-5px);
+      }
+
+      /* FLOATING ACTION HUB */
+      .floating-hub {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+      }
+      .hidden-apps {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(30px);
+        transition: 0.5s;
+      }
+      .hidden-apps.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      .btn-float {
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 26px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+        border: none;
+        transition: 0.3s;
+      }
+      .btn-main {
+        background: var(--oranye);
+        font-size: 32px;
+      }
+      .btn-wa {
+        background: #25d366;
+      }
+      .btn-ig {
+        background: #e4405f;
+      }
+      .btn-tt {
+        background: #010101;
+      } /* TikTok */
+      .btn-main.rotate {
+        transform: rotate(135deg);
+        background: #333;
+      }
+
+      @media (max-width: 992px) {
+        .footer-main {
+          grid-template-columns: 1fr 1fr;
+        }
+        #about {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+        .hero-content h1 {
+          font-size: 2.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo-area">
+        <img src="img/Orange Black Minimalist Kitchen Logo.png" alt="Logo" />
+        <h1 style="font-weight: 800; font-size: 1.8rem; color: #111">
+          Abdullah Kitchen
+        </h1>
+      </div>
+      <div class="header-info">
+        <i class="fas fa-shipping-fast"></i>
+        <div><small>Tempat</small><b>Parakan-Pondok-Benda</b></div>
+      </div>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#testimoni">Testimoni</a></li>
+        <li><a href="#saran">Saran</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="search-container">
+        <div class="search-box">
+          <input
+            type="text"
+            id="inputCari"
+            placeholder="Cari alat dapur..."
+            onkeyup="cariProduk()"
+          />
+          <i class="fas fa-search" style="margin-right: 10px; color: #aaa"></i>
+        </div>
+        <button class="btn-cari">cari</button>
+      </div>
+    </nav>
+
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h1>Jual beli alat Kitchen<br />Resto bekas dan baru</h1>
+        <a href="#shop" class="btn-hero">Abdullah Kitchen </a>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="about-img">
+        <img
+          src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=1000"
+        />
+      </div>
+      <div class="about-text">
+        <h2>Tentang Abdullah Kitchen</h2>
+        <p>
+          Abdullah Kitchen adalah spesialis penyedia peralatan dapur restoran
+          standar profesional yang berlokasi di Jalan TPU Parakan no.98
+          RT.02/RW.09 . Kami menjual dan membeli alat-alat bekas resto
+          berkualitas tinggi dengan harga bersahabat.
+        </p>
+      </div>
+    </section>
+
+    <section id="shop">
+      <div class="section-title">
+        <p>KITCHEN SHOP</p>
+        <h2>Koleksi Produk Kami</h2>
+      </div>
+      <div class="product-grid" id="daftarProduk">
+        <div class="product-card" data-nama="kompor">
+          <img src="img/kompor.jpg" />
+          <h4>Kompor Stockpot</h4>
+        </div>
+        <div class="product-card" data-nama="meja">
+          <img src="img/meja.jpg" />
+          <h4>Meja Stainless</h4>
+        </div>
+        <div class="product-card" data-nama="bain marie">
+          <img src="img/brain mariafge.jpg" />
+          <h4>Bain Marie</h4>
+        </div>
+        <div class="product-card" data-nama="bar station">
+          <img src="img/bar station.jpg" />
+          <h4>Bar Station</h4>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimoni">
+      <div class="section-title"><h2>Apa Kata Mereka?</h2></div>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <p>"Barang Seccond tapi Kualitas bagus."</p>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              margin-top: 15px;
+            "
+          >
+            <b></b>
+          </div>
+        </div>
+        <div class="testi-card">
+          <p>"Adminnya fast respon, pengiriman aman sampai tujuan."</p>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              margin-top: 15px;
+            "
+          ></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="saran">
+      <div class="section-title">
+        <h2 style="color: white">Saran & Kritik</h2>
+        <p style="color: var(--oranye)">Bantu Kami Menjadi Lebih Baik</p>
+      </div>
+      <div class="saran-container">
+        <form id="formSaran">
+          <input type="text" placeholder="Nama Anda" required />
+          <input type="email" placeholder="Email (Opsional)" />
+          <textarea
+            rows="5"
+            placeholder="Tuliskan saran atau kritik Anda di sini..."
+            required
+          ></textarea>
+          <button type="submit" class="btn-saran">Kirim Pesan Sekarang</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-title"><h2>HUBUNGI KAMI</h2></div>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <i class="fab fa-whatsapp"></i>
+          <h4>WhatsApp</h4>
+          <p>0823-1575-8446</p>
+        </div>
+        <div class="contact-card">
+          <i class="fas fa-map-marker-alt"></i>
+          <h4>Lokasi</h4>
+          <p>Jalan TPU parakan no.98RT.02/RW.09</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-features">
+        <div class="feature-item">
+          <i class="fas fa-comment-dollar"></i>
+          <p>Transfer Bank</p>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-shopping-cart"></i>
+          <p>Siap Kirim</p>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-award"></i>
+          <p>Garansi Produk</p>
+        </div>
+      </div>
+      <div class="footer-main">
+        <div class="footer-brand">
+          <h3>Abdullah Kitchen</h3>
+          <p>
+            Kepuasan anda adalah kebahagiaan kami. Berlokasi di Markas Hibro.
+          </p>
+          <div class="social-box">
+            <a href="https://instagram.com/kitchen_reborn" target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://tiktok.com/@kitchen.reborn" target="_blank"
+              ><i class="fab fa-tiktok"></i
+            ></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Navigasi</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#shop">Shop</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          © 2026 Abdullah Kitchen - Parakan-Pondok-Benda-Pamulang. All Rights
+          Reserved.
+        </p>
+      </div>
+    </footer>
+
+    <div class="floating-hub">
+      <div class="hidden-apps" id="appMenu">
+        <a
+          href="https://wa.me/628126444947"
+          target="_blank"
+          class="btn-float btn-wa"
+          ><i class="fab fa-whatsapp"></i
+        ></a>
+        <a
+          href="https://instagram.com/kitchen_reborn"
+          target="_blank"
+          class="btn-float btn-ig"
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a
+          href="https://tiktok.com/@username_tiktok"
+          target="_blank"
+          class="btn-float btn-tt"
+          ><i class="fab fa-tiktok"></i
+        ></a>
+      </div>
+      <button
+        class="btn-float btn-main"
+        onclick="toggleFloatingMenu()"
+        id="mainFloatBtn"
+      >
+        <i class="fas fa-plus"></i>
+      </button>
+    </div>
+
+    <script>
+      function toggleFloatingMenu() {
+        document.getElementById("appMenu").classList.toggle("active");
+        document.getElementById("mainFloatBtn").classList.toggle("rotate");
+      }
+      function cariProduk() {
+        let input = document.getElementById("inputCari").value.toLowerCase();
+        let cards = document.getElementsByClassName("product-card");
+        for (let i = 0; i < cards.length; i++) {
+          let nama = cards[i].getAttribute("data-nama");
+          cards[i].style.display = nama.includes(input) ? "" : "none";
+        }
+      }
+      document.getElementById("formSaran").onsubmit = function (e) {
+        e.preventDefault();
+        alert("Terima kasih Sam atas masukannya! Pesan sudah terkirim.");
+        this.reset();
+      };
+    </script>
+  </body>
+</html>
